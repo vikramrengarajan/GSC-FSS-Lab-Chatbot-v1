@@ -49,15 +49,15 @@ app.use( bodyParser.json() );
 // Create the service wrapper
 var conversation = watson.conversation( {
   url: 'https://gateway.watsonplatform.net/conversation/api',
-  username: process.env.CONVERSATION_USERNAME || '21753556-a4fc-423d-a6ed-35a502dc3e10',
-  password: process.env.CONVERSATION_PASSWORD || 'GacgKhcZsCio',
+  username: process.env.CONVERSATION_USERNAME || '<username>',
+  password: process.env.CONVERSATION_PASSWORD || '<password>',
   version_date: '2016-07-11',
   version: 'v1'
 } );
 var tone_analyzer = watson.tone_analyzer({
-  username: 'c74bddb2-5f25-4068-a0e2-85e4d768f69d',
+  username: '<username>',
   password: 'OqIwvBZowRfG',
-    url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
+    url: '<password>',
   version: 'v3',
   version_date: '2016-05-19'
 });
@@ -65,7 +65,7 @@ var tone_analyzer = watson.tone_analyzer({
 
 // Endpoint to be call from the client side
 app.post( '/api/message', function(req, res) {
-  var workspace = process.env.WORKSPACE_ID || '6941f3ff-7975-4bef-abfb-f8a1a2bcb7ed';
+  var workspace = process.env.WORKSPACE_ID || '<workspace_id>';
   var payload = {
     workspace_id: workspace,
     context: {},
