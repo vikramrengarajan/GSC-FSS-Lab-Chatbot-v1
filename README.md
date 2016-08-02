@@ -2,7 +2,7 @@
 
 This application demonstrates how the Conversation service uses intent capabilities in a simple chat interface.
 
-[See the app demo](http://http://gscfss-conversation-tone.mybluemix.net/).
+[See the app demo](http://gscfss-conversation-tone.mybluemix.net/).
 
 For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
 
