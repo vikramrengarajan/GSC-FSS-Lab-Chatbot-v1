@@ -49,26 +49,55 @@ app.use( bodyParser.json() );
 // Create the service wrapper
 var conversation = watson.conversation( {
   url: 'https://gateway.watsonplatform.net/conversation/api',
-  username: process.env.CONVERSATION_USERNAME || '<username>',
+  username: process.env.CONVERSATION_USERNAME || '<username',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
   version_date: '2016-07-11',
   version: 'v1'
 } );
 var tone_analyzer = watson.tone_analyzer({
   username: '<username>',
-  password: 'OqIwvBZowRfG',
-    url: '<password>',
+  password: '<password>',
+    url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
   version: 'v3',
   version_date: '2016-05-19'
 });
 
+var person={
+  fname:"Natalie",
+  lname:"Smith",
+  address:"Dallas, TX",
+  SSN:"123456789",
+  cusID:1234
+};
+var accounts=[
+{
+number:1234,
+type:"Checking",
+balance:500,
+name:"Advanced Plus"
+},
+{
+number:2234,
+type:"Savings",
+balance:500,
+name:"Advanced Savings Plus"
+},
+{
+number:2234123422,
+type:"cc",
+availablecredit:1500,
+dueDate:"12/12/16"
+}
+];
+
 
 // Endpoint to be call from the client side
-app.post( '/api/message', function(req, res) {
-  var workspace = process.env.WORKSPACE_ID || '<workspace_id>';
+app.post( '/api/message', function(req, res) 
+{
+  var workspace = process.env.WORKSPACE_ID || '<workspacce_id>';
   var payload = {
     workspace_id: workspace,
-    context: {},
+    context: {person,accounts},
     input: {}
   };
 
@@ -83,42 +112,45 @@ app.post( '/api/message', function(req, res) {
 
   }
    callconv(payload);
+
+
   // Send the input to the conversation service
   function callconv(payload)
   {
     var query_input=JSON.stringify(payload.input);
-  tone_analyzer.tone({text: query_input, tones:'emotion'},
-  function(err, tone) {
-    if (err)
-      {console.log("step1");
-        console.log(err);
-      }
-    else
-      
-    console.log(query_input);
-      console.log(JSON.stringify(tone, null, 2));
-      var emotionTones = tone.document_tone.tone_categories[0].tones;
-                var len = emotionTones.length;
-                 for(var i=0;i<len;i++){
-                  if(emotionTones[i].tone_id==='anger')
+    var con_input=JSON.stringify(payload.context);
+    tone_analyzer.tone({text: query_input, tones:'emotion'}, 
+      function(err, tone) 
+      {
+        if (err) {console.log("step1"); 
+        console.log(err); 
+      } 
+      else 
+        {
+          console.log(query_input); 
+          console.log(con_input); 
+          console.log(JSON.stringify(tone, null, 2)); 
+          var emotionTones = tone.document_tone.tone_categories[0].tones; 
+          var len = emotionTones.length; 
+          for(var i=0;i<len;i++){if(emotionTones[i].tone_id==='anger') 
+          {
+            console.log("Emotion_anger",emotionTones[i].score); 
+            conversation.message( payload, function(err, data) 
+              {
+                if ( err ) 
                   {
-  console.log("Emotion_anger",emotionTones[i].score);
-  conversation.message( payload, function(err, data) {
-    if ( err ) {
-      return res.status( err.code || 500 ).json( err );
-    }
-    return res.json( updateMessage( payload, data ) );
-                        console.log("step2");
+                    return res.status( err.code || 500 ).json( err ); 
+                  } 
+                  return res.json( updateMessage( payload, data ) ); 
+                  console.log("step2"); 
+                }); 
+          }
+        } 
+      } 
+    }); 
+  } 
 
-  } );
-}
-}
 });
-}
-
-
-} );
-
 
 /**
  * Updates the response text using the intent confidence
@@ -126,7 +158,8 @@ app.post( '/api/message', function(req, res) {
  * @param  {Object} response The response from the Conversation service
  * @return {Object}          The response with the updated message
  */
-function updateMessage(input, response) {
+function updateMessage(input, response) 
+{
   var responseText = null;
   var id = null;
   if ( !response.output ) {
@@ -155,11 +188,7 @@ function updateMessage(input, response) {
     }
   }
   response.output.text = responseText;
-  if ( logs ) {
-    // If the logs db is set, then we want to record all input and responses
-    id = uuid.v4();
-    logs.insert( {'_id': id, 'request': input, 'response': response, 'time': new Date()});
-  }
+  
   return response;
 }
 
