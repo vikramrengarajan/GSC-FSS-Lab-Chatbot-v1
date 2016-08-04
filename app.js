@@ -49,7 +49,7 @@ app.use( bodyParser.json() );
 // Create the service wrapper
 var conversation = watson.conversation( {
   url: 'https://gateway.watsonplatform.net/conversation/api',
-  username: process.env.CONVERSATION_USERNAME || '<username',
+  username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
   version_date: '2016-07-11',
   version: 'v1'
@@ -62,14 +62,14 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-05-19'
 });
 
-var person={
+var person_in={
   fname:"Natalie",
   lname:"Smith",
   address:"Dallas, TX",
   SSN:"123456789",
   cusID:1234
 };
-var accounts=[
+var accounts_in=[
 {
 number:1234,
 type:"Checking",
@@ -89,15 +89,16 @@ availablecredit:1500,
 dueDate:"12/12/16"
 }
 ];
-
+var accounts = [];
+var person=[];
 
 // Endpoint to be call from the client side
 app.post( '/api/message', function(req, res) 
 {
-  var workspace = process.env.WORKSPACE_ID || '<workspacce_id>';
+  var workspace = process.env.WORKSPACE_ID || '<workspace_id>';
   var payload = {
     workspace_id: workspace,
-    context: {person,accounts},
+    context: {person,accounts,},
     input: {}
   };
 
@@ -119,6 +120,8 @@ app.post( '/api/message', function(req, res)
   {
     var query_input=JSON.stringify(payload.input);
     var con_input=JSON.stringify(payload.context);
+    accounts.push(accounts_in);
+    person.push(person_in);
     tone_analyzer.tone({text: query_input, tones:'emotion'}, 
       function(err, tone) 
       {
