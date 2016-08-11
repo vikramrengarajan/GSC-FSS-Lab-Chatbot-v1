@@ -1,3 +1,11 @@
+declared-services:
+  conversation-service:
+    label: conversation
+    plan: free
+  tone-analyzer-standard:
+    label: tone_analyzer
+    plan: standard
+    
 applications:
 - path: .
   memory: 256M
@@ -7,4 +15,7 @@ applications:
   host: gscfss-conversation-tone
   disk_quota: 1024M
   services:
-  - Conversation-experimental
+  - Conversation-service
+  -tone-analyzer
+  env:
+    NPM_CONFIG_PRODUCTION: false
