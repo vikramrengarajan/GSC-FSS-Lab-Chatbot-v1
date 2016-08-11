@@ -18,7 +18,8 @@ For more information about Conversation, see the [detailed documentation](http:/
 
 ## Before you begin
 1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
-<br>
+
+#
    1.1 Fill the required details and click Create Account.
    ![](readme_images/register.PNG)
 
@@ -34,11 +35,14 @@ For more information about Conversation, see the [detailed documentation](http:/
 
    1.3 Click Login and enter your Bluemix credentials.
    ![](readme_images/logmail.PNG)
+   #
    ![](readme_images/logmail1.PNG)
 
    1.4 Create an Organization and space and then go to I'm Ready.
    ![](readme_images/orgmail1.PNG)
+   #
    ![](readme_images/spacemail.PNG)
+   #
    ![](readme_images/summary_success.PNG)
  
  You reach your Bluemix Dashboard.
