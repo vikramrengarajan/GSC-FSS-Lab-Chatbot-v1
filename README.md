@@ -18,6 +18,7 @@ For more information about Conversation, see the [detailed documentation](http:/
 
 ## Before you begin
 1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+<b>
    1.1 Fill the required details and click Create Account.
    ![](readme_images/register.PNG)
 
