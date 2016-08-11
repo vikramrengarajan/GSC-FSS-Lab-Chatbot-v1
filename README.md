@@ -4,11 +4,11 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 
 <a name="bluemix">
-Getting Started using Bluemix
+# Getting Started using Bluemix
 </a>
 
 
- Before you begin
+## Before you begin
 
 #1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
 
