@@ -15,5 +15,5 @@ applications:
   host: gscfss-conversation-tone
   disk_quota: 1024M
   services:
-  - Conversation-service
+  - conversation-service
   - tone-analyzer
