@@ -7,7 +7,7 @@ This application demonstrates how the Conversation service uses intent capabilit
 For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml). And for information on the Tone Analyzer, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/tone-analyzer/).
 
 
-<b>Either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
+<b>Either way to deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 <a name="bluemix">
@@ -17,16 +17,42 @@ For more information about Conversation, see the [detailed documentation](http:/
 ![](readme_images/Deploy on Bluemix - simple app.png)
 
 ## Before you begin
-1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+   1.1 Fill the required details and click Create Account.
+   ![](readme_images/register.PNG)
 
-2 Ensure that you have the necessary space available in your Bluemix account. This action deploys 1 application and 1 service.
+   You receive a message to check your mail.
+   ![](readme_images/chkmail.PNG)
+
+   1.2 Check your registered mail and find a mail to confirm your bluemix account.
+
+   ![](readme_images/mailmsg.PNG)
+
+   Click Confirm your account and get a Success message.
+   ![](readme_images/success.PNG)
+
+   1.3 Click Login and enter your Bluemix credentials.
+   ![](readme_images/logmail.PNG)
+   ![](readme_images/logmail1.PNG)
+
+   1.4 Create an Organization and space and then go to I'm Ready.
+   ![](readme_images/orgmail1.PNG)
+   ![](readme_images/spacemail.PNG)
+   ![](readme_images/summary_success.PNG)
+ 
+ You reach your Bluemix Dashboard.
+ ![](readme_images/dashboard.PNG)
+
+2. Ensure that you have the necessary space available in your Bluemix account. This action requires to deploys 1 application and 2 services.
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
+   * For Cloud Foundry Apps
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services1.PNG)
 
 ## Deploy the App
-1 Select Deploy to Bluemix.
+1. Select Deploy to Bluemix.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/vikramrengarajan/gscfss-conversation-tone)
 
@@ -35,9 +61,20 @@ For more information about Conversation, see the [detailed documentation](http:/
 3 Name your app and select your REGION, ORGINIZATION, and SPACE. Then select DEPLOY.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
 
+If asked to pick up an alias,:
+
+![](readme_images/alias.PNG)
+    Create an alias and click continue.
+![](readme_images/cont.PNG)
+
+If not continue to fill details for the app.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy1.PNG)
+
+
 * This performs two actions:
   - Creates the app
-  - Creates a Conversation service instance that the user needs for workspace creation
+  - Creates a Conversation and Tone Analyzer service instance that the user needs for workspace creation
+  ![](readme_images/res.PNG)
 
 * The status of the deployment is shown. This can take some time.
 
@@ -80,13 +117,26 @@ To build the application:
 
 4 Edit the `manifest.yml` file, and change the `<application-name>` to something unique.
   ```none
-  applications:git 
-  - services:
-    - conversation-service
-    name: <application-name>
-    command: npm start
-    path: .
-    memory: 256M
+  declared-services:
+   conversation-service:
+    label: conversation
+    plan: free
+   tone-analyzer-standard:
+    label: tone_analyzer
+    plan: standard
+    
+ applications:
+ - path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: gscfss-conversation-tone
+  host: gscfss-conversation-tone
+  disk_quota: 1024M
+  services:
+  - conversation-service
+  - tone-analyzer-standard
+  name: tone-analyzer-demo
   ```
 
   The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
