@@ -16,6 +16,4 @@ applications:
   disk_quota: 1024M
   services:
   - Conversation-service
-  -tone-analyzer
-  env:
-    NPM_CONFIG_PRODUCTION: false
+  - tone-analyzer
