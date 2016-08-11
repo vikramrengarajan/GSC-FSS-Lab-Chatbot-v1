@@ -1,26 +1,18 @@
-# gscfss_conversation_tone
+# chatbot-app
 
-This application demonstrates how the Conversation service uses intent capabilities in a simple chat interface.
-
-[See the app demo](http://gscfss-conversation-tone.mybluemix.net/).
-
-For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml). And for information on the Tone Analyzer, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/tone-analyzer/).
+Welcome! This section will walk you through the lab prerequisites. This should have been already seen and completed as pre-work, they are included for your completeness.
 
 
-<b>Either way to deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 <a name="bluemix">
 # Getting Started using Bluemix
 </a>
 
-![](readme_images/Deploy on Bluemix - simple app.png)
 
 ## Before you begin
-1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
 
-#
-   1.1 Fill the required details and click Create Account.
+#1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+
+  #1.1 Fill the required details and click Create Account.
    ![](readme_images/register.PNG)
 
    You receive a message to check your mail.
