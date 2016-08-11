@@ -3,7 +3,7 @@ declared-services:
     label: conversation
     plan: free
   tone-analyzer-standard:
-    label: tone_analyzer
+    label: tone-analyzer
     plan: standard
     
 applications:
@@ -16,4 +16,5 @@ applications:
   disk_quota: 1024M
   services:
   - conversation-service
-  - tone-analyzer
+  - tone-analyzer-standard
+ 
