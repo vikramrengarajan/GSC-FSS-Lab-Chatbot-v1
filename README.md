@@ -4,15 +4,15 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 
 <a name="bluemix">
-# Getting Started using Bluemix
+Getting Started using Bluemix
 </a>
 
 
-## Before you begin
+ Before you begin
 
 #1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
 
-  #1.1 Fill the required details and click Create Account.
+  1.1 Fill the required details and click Create Account.
    ![](readme_images/register.PNG)
 
    You receive a message to check your mail.
