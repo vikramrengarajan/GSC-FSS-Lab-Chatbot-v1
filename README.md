@@ -89,7 +89,7 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/cont.PNG)
 
 
-4. Name your app and select your Region, Organization and space and Click Deploy.
+<b>4. Name your app and select your Region, Organization and space and Click Deploy.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy1.PNG)
 
@@ -103,11 +103,11 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/createproject.PNG)
 
-5. Once your app has deployed, select VIEW YOUR APP.
+<b>5. Once your app has deployed, select VIEW YOUR APP.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
 
-6. Your application is succesfully deployed and the pre-work for you is completed.
+<b>6. Your application is succesfully deployed and the pre-work for you is completed.</b>
 
 
 # License
