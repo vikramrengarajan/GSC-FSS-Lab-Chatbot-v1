@@ -51,6 +51,8 @@ For more information about Conversation, see the [detailed documentation](http:/
 2. Ensure that you have the necessary space available in your Bluemix account. This action requires to deploys 1 application and 2 services.
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
    * For Cloud Foundry Apps
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services1.PNG)
 
