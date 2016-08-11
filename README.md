@@ -71,16 +71,15 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 ## Deploy the App
 
-<b></b>
-1. Click on the Deploy to Bluemix below.
+<b>1. Click on the Deploy to Bluemix below.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/vikramrengarajan/gscfss-conversation-tone)
 
-2. Log in with your Bluemix account.
+<b>2. Log in with your Bluemix account.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
 
-3. If asked to pick up an alias by following the steps below, else go to the next step.
+<b>3. If asked to pick up an alias by following the steps below, else go to the next step.</b>
 
 3.1 Enter a unique alias name and click create.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/alias.PNG)
