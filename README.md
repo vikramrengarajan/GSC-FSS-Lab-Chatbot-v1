@@ -10,7 +10,7 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 ## Before you begin
 
-<b>1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+<b>1. Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).</b>
 
   1.1 Please fill the required details and click Create Account.
 
@@ -59,7 +59,7 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 
 
-<b> 2. Ensure that you have the necessary space available in your Bluemix account. You requires to deploy 1 application and 2 services.
+<b> 2. Ensure that you have the necessary space available in your Bluemix account. You requires to deploy 1 application and 2 services.</b>
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
 
