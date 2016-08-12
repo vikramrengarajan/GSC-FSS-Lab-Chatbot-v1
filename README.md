@@ -108,7 +108,7 @@ Welcome! This section will walk you through the lab prerequisites. This should h
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
 
-<b>6. Your application is succesfully deployed and the pre-work for you is completed.</b>
+<b>6. The application is succesfully deployed and your pre-work is completed.</b>
 
 
 # License
