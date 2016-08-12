@@ -55,8 +55,8 @@ var conversation = watson.conversation( {
   version: 'v1'
 } );
 var tone_analyzer = watson.tone_analyzer({
-  username: process.env.TONEANALYZER_USERNAME || '<username>',
-  password: process.env.TONEANALYZER_PASSWORD || '<password>',
+  username: '<username>',
+  password: '<password>',
     url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
   version: 'v3',
   version_date: '2016-05-19'
