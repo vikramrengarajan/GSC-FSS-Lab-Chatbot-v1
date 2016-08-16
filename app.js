@@ -98,7 +98,7 @@ app.post( '/api/message', function(req, res)
   var workspace = process.env.WORKSPACE_ID || '<workspace_id>';
   var payload = {
     workspace_id: workspace,
-    context: {person,accounts,},
+    context: {person,accounts},
     input: {}
   };
 
