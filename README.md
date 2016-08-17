@@ -54,12 +54,12 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 
 
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. During the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b>
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. For the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
 
-   * The 'Cloud Foundry Apps' tile shows the memory you have available for apps. You will require at least 256 MB of free space to deploy an app during the lab.
+   * The 'Cloud Foundry Apps' tile shows the memory you have available for apps. You will require at least 256 MB of free space to deploy the app for this lab.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services1.PNG)
 
