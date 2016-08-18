@@ -1,4 +1,4 @@
-# chatbot-app
+# GSC-FSS-Lab-Chatbot
 
 Welcome! These instructions describe the prerequisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
 
