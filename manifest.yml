@@ -11,8 +11,8 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: gscfss-conversation-tone
-  host: gscfss-conversation-tone
+  name: GSC-FSS-Lab-Chatbot-v1
+  host: gscfss-lab-chatbot-v1
   disk_quota: 1024M
   services:
   - GSC-FSS-Lab-Conversation
