@@ -17,4 +17,4 @@ applications:
   services:
   - GSC-FSS-Lab-Conversation
   - GSC-FSS-Lab-Tone-Analyzer
-  name: tone-analyzer-demo
+  name: GSC-FSS-Lab-Tone-Analyzer-demo
