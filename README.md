@@ -5,7 +5,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 ## Prepare your Bluemix account
 
-<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to this [section](#acc_complete)). </b> 
+<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to [step 2](#acc_complete) in this section). </b> 
 
   1.1 Register for a [Bluemix account](https://console.ng.bluemix.net/registration/), fill out the required details and click 'Create Account'.
 
@@ -103,10 +103,6 @@ Welcome! These instructions describe the prerequisites you should complete befor
 You will land on the Overview of your application. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
-
-When you would click on Back to your Dashboard, it would contain the application and the services as shown below. 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/ser.PNG)
 
 <b>6. The application and services have been successfully deployed, and you are now ready to begin the lab!</b>
 
