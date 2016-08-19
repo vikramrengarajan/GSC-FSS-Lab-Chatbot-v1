@@ -95,16 +95,18 @@ Welcome! These instructions describe the prerequisites you should complete befor
   - Creates the application.
   - Creates a Conversation and Tone Analyzer service instance.
 
-Once the deployment is complete, your dashboard should contain the app and the service as shown below. 
+<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/res.PNG)
 
+You will land on the Overview of your application. 
 
-<b>5.  After the deployment process has finsihed, select 'VIEW YOUR APP'.</b>
+If you go Back to ypur Dashboard, it contain the application and the services as shown below. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
 
-<b>6. The application and service have been successfully deployed, and you are now ready to begin the lab!</b>
+<b>6. The application and services have been successfully deployed, and you are now ready to begin the lab!</b>
 
 
 # License
