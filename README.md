@@ -102,9 +102,11 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 You will land on the Overview of your application. 
 
-If you go Back to ypur Dashboard, it contain the application and the services as shown below. 
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
+
+If you go Back to your Dashboard, it contains the application and the services as shown below. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/ser.PNG)
 
 <b>6. The application and services have been successfully deployed, and you are now ready to begin the lab!</b>
 
