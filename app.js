@@ -1,200 +1,330 @@
 /**
  * Copyright 2015 IBM Corp. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * Licensed under the Apache License, Version 2.0 (the 'License'); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
  */
 
 'use strict';
 
-require( 'dotenv' ).config( {silent: true} );
+require('dotenv').config({
+	silent : true
+});
 
-var express = require( 'express' );  // app server
-var bodyParser = require( 'body-parser' );  // parser for post requests
-var watson = require( 'watson-developer-cloud' );  // watson sdk
+var express = require('express'); // app server
+var bodyParser = require('body-parser'); // parser for post requests
+var watson = require('watson-developer-cloud'); // watson sdk
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
 var cfenv = require('cfenv');
-// The following requires are needed for logging purposes
-var uuid = require( 'uuid' );
-var vcapServices = require( 'vcap_services' );
-var basicAuth = require( 'basic-auth-connect' );
-var url     = require('url'),
-  bodyParser  = require("body-parser"),
-  async       = require("async"),
-  http = require('http'),
-  https = require('https');
-// The app owner may optionally configure a cloudand db to track user input.
-// This cloudand db is not required, the app will operate without it.
-// If logging is enabled the app must also enable basic auth to secure logging
-// endpoints
-var logs = null;
+
+var vcapServices = require('vcap_services');
+var url = require('url'), bodyParser = require('body-parser'), 
+	http = require('http'), 
+	https = require('https'),
+	numeral = require('numeral');
+	
+var commonServices = require('./common_services');
+
+var CONVERSATION_USERNAME = '',
+	CONVERSATION_PASSWORD = '',
+	TONE_ANALYZER_USERNAME = '',
+	TONE_ANALYZER_PASSWORD = '';
+
+var LOOKUP_BALANCE = 'balance';
+var LOOKUP_TRANSACTIONS = 'transactions';
+
+
 var app = express();
 
 // Bootstrap application settings
-app.use( express.static( './public' ) ); // load UI from public folder
-app.use( bodyParser.json() );
+app.use(express.static('./public')); // load UI from public folder
+app.use(bodyParser.json());
 
-
+//credentials
+var conversation_credentials = vcapServices.getCredentials('conversation');
+var tone_analyzer_credentials = vcapServices.getCredentials('tone_analyzer');
 
 // Create the service wrapper
-var conversation = watson.conversation( {
-  url: 'https://gateway.watsonplatform.net/conversation/api',
-  username: process.env.CONVERSATION_USERNAME || '<username>',
-  password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-07-11',
-  version: 'v1'
-} );
-var tone_analyzer = watson.tone_analyzer({
-  username: '<username>',
-  password: '<password>',
-    url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
-  version: 'v3',
-  version_date: '2016-05-19'
+var conversation = watson.conversation({
+	url : 'https://gateway.watsonplatform.net/conversation/api',
+	username : conversation_credentials.username || CONVERSATION_USERNAME,
+	password : conversation_credentials.password || CONVERSATION_PASSWORD,
+	version_date : '2016-07-11',
+	version : 'v1'
 });
 
-var person_in={
-  fname:"Natalie",
-  lname:"Smith",
-  address:"Dallas, TX",
-  SSN:"123456789",
-  cusID:1234
-};
-var accounts_in=[
-{
-number:1234,
-type:"Checking",
-balance:500,
-name:"Advanced Plus"
-},
-{
-number:2234,
-type:"Savings",
-balance:500,
-name:"Advanced Savings Plus"
-},
-{
-number:2234123422,
-type:"cc",
-availablecredit:1500,
-dueDate:"12/12/16"
-}
-];
-var accounts = [];
-var person=[];
+var tone_analyzer = watson.tone_analyzer({
+	username : tone_analyzer_credentials.username || TONE_ANALYZER_USERNAME,
+	password : tone_analyzer_credentials.password || TONE_ANALYZER_PASSWORD,
+	url : 'https://gateway.watsonplatform.net/tone-analyzer/api',
+	version : 'v3',
+	version_date : '2016-05-19'
+});
 
-// Endpoint to be call from the client side
-app.post( '/api/message', function(req, res) 
-{
-  var workspace = process.env.WORKSPACE_ID || '<workspace_id>';
-  var payload = {
-    workspace_id: workspace,
-    context: {person,accounts},
-    input: {}
-  };
+var WORKSPACE_ID = '<workspace-id>';
 
-  if ( req.body ) {
-    if ( req.body.input ) {
-      payload.input = req.body.input;
-    }
-    if ( req.body.context ) {
-      // The client must maintain context/state
-      payload.context = req.body.context;
-    }
+// Endpoint to be called from the client side
+app.post('/api/message', function(req, res) {
+	var workspace = process.env.WORKSPACE_ID || WORKSPACE_ID;
+	
+	if ( !workspace || workspace === '<workspace-id>' ) {
+		return res.json( {
+		  'output': {
+			'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' +
+			'<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' +
+			'Once a workspace has been defined the intents may be imported from ' +
+			'<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
+		  }
+		} );
+	  }
+	
+	
+	var payload = {
+		workspace_id : workspace,
+		context : {
+			'person' : commonServices.getPerson()
+		},
+		input : {}
+	};
 
-  }
-   callconv(payload);
+	if (req.body) {
+		if (req.body.input) {
+			payload.input = req.body.input;
+		}
+		if (req.body.context) {
+			// The client must maintain context/state
+			payload.context = req.body.context;
+		}
 
+	}
+	callconv(payload);
 
-  // Send the input to the conversation service
-  function callconv(payload)
-  {
-    var query_input=JSON.stringify(payload.input);
-    var con_input=JSON.stringify(payload.context);
-    accounts.push(accounts_in);
-    person.push(person_in);
-    tone_analyzer.tone({text: query_input, tones:'emotion'}, 
-      function(err, tone) 
-      {
-        if (err) {console.log("step1"); 
-        console.log(err); 
-      } 
-      else 
-        {
-          console.log(query_input); 
-          console.log(con_input); 
-          console.log(JSON.stringify(tone, null, 2)); 
-          var emotionTones = tone.document_tone.tone_categories[0].tones; 
-          var len = emotionTones.length; 
-          for(var i=0;i<len;i++){if(emotionTones[i].tone_id==='anger') 
-          {
-            console.log("Emotion_anger",emotionTones[i].score); 
-            conversation.message( payload, function(err, data) 
-              {
-                if ( err ) 
-                  {
-                    return res.status( err.code || 500 ).json( err ); 
-                  } 
-                  return res.json( updateMessage( payload, data ) ); 
-                  console.log("step2"); 
-                }); 
-          }
-        } 
-      } 
-    }); 
-  } 
+	// Send the input to the conversation service
+	function callconv(payload) {
+		var query_input = JSON.stringify(payload.input);
+		var context_input = JSON.stringify(payload.context);
+
+		tone_analyzer.tone({
+			text : query_input,
+			tones : 'emotion'
+		}, function(err, tone) {
+			var tone_anger_score = '';
+			if (err) {
+				console.log('Error occurred while invoking Tone analyzer. ::', err);
+				//return res.status(err.code || 500).json(err);
+			} else {
+				var emotionTones = tone.document_tone.tone_categories[0].tones;
+				
+				var len = emotionTones.length;
+				for (var i = 0; i < len; i++) {
+					if (emotionTones[i].tone_id === 'anger') {
+						console.log('Emotion_anger', emotionTones[i].score);
+						tone_anger_score = emotionTones[i].score;
+						break;
+					}
+				}
+				
+			}
+			
+			payload.context['tone_anger_score'] = tone_anger_score;
+			
+			conversation.message(payload, function(err, data) {
+				if (err) {
+					return res.status(err.code || 500).json(err);
+				}else{
+					//lookup actions 
+					checkForLookupRequests(data, function(err, data){
+						if (err) {
+							return res.status(err.code || 500).json(err);
+						}else{
+							//console.log('sending response', JSON.stringify(data,null,2));
+							return res.json(data);
+						}
+					});
+					
+				}
+			});
+			
+			
+		});
+	}
 
 });
 
 /**
- * Updates the response text using the intent confidence
- * @param  {Object} input The request to the Conversation service
- * @param  {Object} response The response from the Conversation service
- * @return {Object}          The response with the updated message
- */
-function updateMessage(input, response) 
-{
-  var responseText = null;
-  var id = null;
-  if ( !response.output ) {
-    response.output = {};
-  } else {
-    if ( logs ) {
-      // If the logs db is set, then we want to record all input and responses
-      id = uuid.v4();
-      logs.insert( {'_id': id, 'request': input, 'response': response, 'time': new Date()});
-    }
-    return response;
-  }
-  if ( response.intents && response.intents[0] ) {
-    var intent = response.intents[0];
-    // Depending on the confidence of the response the app can return different messages.
-    // The confidence will vary depending on how well the system is trained. The service will always try to assign
-    // a class/intent to the input. If the confidence is low, then it suggests the service is unsure of the
-    // user's intent . In these cases it is usually best to return a disambiguation message
-    // ('I did not understand your intent, please rephrase your question', etc..)
-    if ( intent.confidence >= 0.75 ) {
-      responseText = 'I understood your intent was ' + intent.intent;
-    } else if ( intent.confidence >= 0.5 ) {
-      responseText = 'I think your intent was ' + intent.intent;
-    } else {
-      responseText = 'I did not understand your intent';
-    }
-  }
-  response.output.text = responseText;
-  
-  return response;
+*
+**/
+function checkForLookupRequests(data, callback){
+	console.log('checkForLookupRequests');
+	//console.log('data :: '+ JSON.stringify(data, null, 2));
+	
+	if(data.context && data.context.action && data.context.action.lookup && data.context.action.lookup!= 'complete'){
+		var workspace = process.env.WORKSPACE_ID || WORKSPACE_ID;
+	    var payload = {
+			workspace_id : workspace,
+			context : data.context,
+			input : data.input
+		}
+		
+		//conversation requests a data lookup action
+		if(data.context.action.lookup === LOOKUP_BALANCE){
+			
+			//if account type is specified (checking, savings or credit card)
+			if(data.context.action.account_type && data.context.action.account_type!=''){
+				//console.log('account_type = ', data.context.action.account_type);
+				
+				//lookup account information services and update context with account data
+				var accounts = commonServices.getAccountInfo(123456, data.context.action.account_type);
+				
+				var len = accounts ? accounts.length : 0;
+				
+				var append_account_response = (data.context.action.append_response && 
+						data.context.action.append_response) === true ? true : false;
+						
+				//console.log('append_account_response '+append_account_response);
+				
+				var accounts_result_text = '';
+				
+				for(var i=0;i<len;i++){
+					accounts[i].balance = accounts[i].balance ? numeral(accounts[i].balance).format('$0,0.00') : '';
+					
+					if(accounts[i].available_credit)
+						accounts[i].available_credit = accounts[i].available_credit ? numeral(accounts[i].available_credit).format('$0,0.00') : '';
+					
+					if(accounts[i].last_statement_balance)
+						accounts[i].last_statement_balance = accounts[i].last_statement_balance ? numeral(accounts[i].last_statement_balance).format('$0,0.00') : '';
+				
+					if(append_account_response===true){
+						accounts_result_text += accounts[i].number + ' ' + accounts[i].type + ' Balance: '+accounts[i].balance +'<br/>';
+					}
+				}
+				
+				payload.context['accounts'] = accounts;
+				
+				//console.log('ACCOUNTS = ', JSON.stringify(accounts, null, 2));
+				
+				//update context action to empty in the subsequent turn and submit the data
+				payload.context.action = {};
+				
+				if(!append_account_response){
+					conversation.message(payload, function(err, data) {
+						if (err) {
+							console.log('Error while calling conversation.message with lookup result', err);
+							callback(err,null);
+						}else {
+							console.log('Result of calling conversation.message with lookup result', data);
+							callback(null, data);
+						}
+					});
+				}else{
+					//append accounts list text to response array
+					if(data.output.text){
+						data.output.text.push(accounts_result_text);
+					}
+					callback(null, data);
+					
+				}
+				
+			}
+			
+		}else if(data.context.action.lookup === LOOKUP_TRANSACTIONS){
+			
+			commonServices.getTransactions(12345, data.context.action.category, function(err, transaction_response){
+			
+				if(err){
+					console.log('Error while calling account services for transactions', err);
+					callback(err,null);
+				}else{
+				
+					var responseTxtAppend = '';
+					if(data.context.action.append_total && data.context.action.append_total === true){
+						responseTxtAppend += 'Total = <b>'+ numeral(transaction_response.total).format('$0,0.00') + '</b>';		
+					}
+					
+					if(transaction_response.transactions && transaction_response.transactions.length>0){
+						//append transactions
+						var len = transaction_response.transactions.length;
+						for(var i=0; i<len; i++){
+							var transaction = transaction_response.transactions[i];
+							if(data.context.action.append_response && data.context.action.append_response===true){
+								responseTxtAppend += '<br/>'+transaction.date+' &nbsp;'+numeral(transaction.amount).format('$0,0.00')+' &nbsp;'+transaction.description;
+							}
+						}
+					}
+					if(responseTxtAppend != ''){
+						if(data.output.text){
+							data.output.text.push(responseTxtAppend);
+						}
+					}
+					callback(null, data);
+					payload.context.action = {};
+					return;
+				}
+			
+			});
+			
+		}else{
+			callback(null, data);
+			return;
+		}
+	}else{
+		callback(null, data);
+		return;
+	}
+	
 }
 
 
 
+/**
+ * Updates the response text using the intent confidence
+ * 
+ * @param {Object}
+ *            input The request to the Conversation service
+ * @param {Object}
+ *            response The response from the Conversation service
+ * @return {Object} The response with the updated message
+ */
+function updateMessage(input, response) {
+	//console.log('updateMessage :: input = ', JSON.stringify(input, null, 2));
+	//console.log('updateMessage :: response = ', JSON.stringify(response, null, 2));
+	
+	var responseText = null;
+	
+	if (response.intents && response.intents[0]) {
+		
+		var intent = response.intents[0];
+		// Depending on the confidence of the response the app can return
+		// different messages.
+		// The confidence will vary depending on how well the system is trained.
+		// The service will always try to assign
+		// a class/intent to the input. If the confidence is low, then it
+		// suggests the service is unsure of the
+		// user's intent . In these cases it is usually best to return a
+		// disambiguation message
+		// ('I did not understand your intent, please rephrase your question',
+		// etc..)
+		if (intent.confidence <= 0.75 ) {
+			console.log('Intent confidence is below 0.75. Ask the user to rephrase the question.');
+			responseText = 'I did not understand your intent. Please rephrase the question.';
+			response.output.text = [responseText];
+		}
+	}
+	
+	console.log('updateMessage :: result = '+JSON.stringify(response, null, 2));
+	return response;
+}
+
+
+	
 module.exports = app;
