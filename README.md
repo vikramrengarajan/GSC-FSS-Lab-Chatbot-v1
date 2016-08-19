@@ -104,7 +104,7 @@ You will land on the Overview of your application.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
 
-If you go Back to your Dashboard, it contains the application and the services as shown below. 
+When you would click on Back to your Dashboard, it would contain the application and the services as shown below. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/ser.PNG)
 
