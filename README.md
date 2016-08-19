@@ -5,7 +5,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 ## Prepare your Bluemix account
 
-<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to this (#acc_complete)section). </b> 
+<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to this [section](#acc_complete)). </b> 
 
   1.1 Register for a [Bluemix account](https://console.ng.bluemix.net/registration/), fill out the required details and click 'Create Account'.
 
