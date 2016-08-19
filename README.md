@@ -95,7 +95,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
   - Creates the application.
   - Creates a Conversation and Tone Analyzer service instance.
 
-<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.
+<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.</b>
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/res.PNG)
