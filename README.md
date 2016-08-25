@@ -47,7 +47,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/summary_success.PNG)
  
 
- You will land on your Bluemix Dashboard. If you don not get to the Dashboard, please move to the next step.
+ You will land on your Bluemix Dashboard. If you do not get to the Dashboard, please move to the next step.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
 
@@ -55,11 +55,11 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview.PNG)   
       
-      Click on Avatar to get more options.
+ Click on Avatar to get more options.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
-     Click on the Switch to Classic to switch the console.
+ Click on the Switch to Classic to switch the console.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview2.PNG)  
 
