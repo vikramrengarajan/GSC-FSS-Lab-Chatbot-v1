@@ -1,13 +1,12 @@
-# GSC-FSS-Lab-Chatbot
+# Implementing a chat bot using Watson Cognitive Services
 
-Welcome! These instructions describe the prerequisites you should complete before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
-
+Welcome! These instructions describe the pre-requisites to be completed before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
 
 ## Prepare your Bluemix account
 
-<b>1. Ensure that you have an account on [IBM Bluemix](https://console.ng.bluemix.net/). (If you already have an account, you can proceed to [step 2](#acc_complete) in this section). </b> 
+<b>1. Ensure that you have an account on [IBM Bluemix](https://bluemix.net/). If you already have a Bluemix account, then sign in to your account and proceed to [step 2](#acc_complete). </b> 
 
-  1.1 Register for a [Bluemix account](https://console.ng.bluemix.net/registration/), fill out the required details and click 'Create Account'.
+  1.1 Register for a [Bluemix account](https://bluemix.net/registration/), fill out the required details and click 'Create Account'.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/register.PNG)
 
@@ -25,13 +24,13 @@ Welcome! These instructions describe the prerequisites you should complete befor
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![](readme_images/success.PNG)
 
 
-   1.4 Click 'Login' and login with your Bluemix credentials.
+   1.4 Click 'Login' and enter your Bluemix credentials.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  ![](readme_images/logmail.PNG)
    
 
 
-   1.5 Create an Organization and enter any organization name.
+   1.5 Create an Organization and enter an organization name.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/orgmail1.PNG)
 
@@ -54,7 +53,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 
 <a name="acc_complete">
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. For the lab, you will be required to deploy 1 application and 2 services. Go to your Bluemix Dashboard to check if you have the required space:</b></a>
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
@@ -67,7 +66,7 @@ Welcome! These instructions describe the prerequisites you should complete befor
 
 <b>1. Click on the 'Deploy to Bluemix' button below.</b>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/vikramrengarajan/GSC-FSS-Lab-Chatbot-v1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/gsclab/chatbot)
 
 <b>2. Log in with your Bluemix account.</b>
 
@@ -95,12 +94,12 @@ Welcome! These instructions describe the prerequisites you should complete befor
   - Creates the application.
   - Creates a Conversation and Tone Analyzer service instance.
 
-<b>5.  Once the deployment is complete, Click on 'Deployed to Bluemix sucessfully'.</b>
+<b>5.  After the deployment has completed, click on the 'Deployed to Bluemix sucessfully' link.</b>
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/res.PNG)
 
-You will land on the Overview of your application. 
+You will land on the Overview page of your application. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/yourapp.PNG)
 
