@@ -47,11 +47,11 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/summary_success.PNG)
  
 <b>
-<font color="red"> 
+<span style="color:orange;">
  You will land on your Bluemix Dashboard. 
  * If you have landed on the Dashboard as shown below, [click here](#acc_complete).
  * If you do not get to the Dashboard, please move to the [step 1.8](#step_view). 
-</font>
+</span>
 </b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
