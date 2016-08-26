@@ -47,7 +47,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/summary_success.PNG)
  
 <b>
-<span style="color:orange;">
+<span style="color:&#x1F34E;">
  You will land on your Bluemix Dashboard. 
  * If you have landed on the Dashboard as shown below, [click here](#acc_complete).
  * If you do not get to the Dashboard, please move to the [step 1.8](#step_view). 
@@ -58,9 +58,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 
 <a name="step_view">
-   1.8 If you land on the bluemix new look as shown below.</a>
-
- Click on option as shown in the new console.
+   1.8 If you land on the bluemix new look as shown below.</a> Follow the steps to reach the Dashboard.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
