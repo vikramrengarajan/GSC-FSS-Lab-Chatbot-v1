@@ -48,7 +48,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
  
 <b>
  You will land on your Bluemix Dashboard. 
- * If you have landed on the Dashboard as shown below, [click here](#acc_complete).
+ * If you have landed on the Dashboard as shown below, [click here](#acc_complete1).
  * If you do not get to the Dashboard, please move to the [step 1.8](#step_view). 
 </b>
 
@@ -69,7 +69,8 @@ You may be asked to login again, please login and after this you will land on th
 
 
 <a name="acc_complete">
-<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a>
+<a name="acc_complete1">
+<b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a></a>
    * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
