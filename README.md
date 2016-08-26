@@ -46,26 +46,27 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/summary_success.PNG)
  
-
+<b>
+<font color="red"> 
  You will land on your Bluemix Dashboard. 
  * If you have landed on the Dashboard as shown below, [click here](#acc_complete).
  * If you do not get to the Dashboard, please move to the [step 1.8](#step_view). 
-
+</font></b>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
+
+
 <a name="step_view">
    1.8 If you land on the bluemix new look as shown below.</a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview.PNG)   
-      
- Click on Avatar to get more options.
+ Click on option as shown in the new console.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
- Click on the Switch to Classic to switch the console.
+ Click on 'Switch to Classic' to switch to the console.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview2.PNG)  
 
-You may be asked to login again, please login and after this you will land on the Bluemix Dashboard.
+You may be asked to login again, please login and after this you will land on the <b>Bluemix Dashboard</b>.
 
 
 
