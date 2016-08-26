@@ -56,8 +56,7 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 
 <a name="step_view">
-   1.8 If you land on the bluemix new look as shown below.</a> Follow the steps to reach the Dashboard.
-
+   1.8 If you land on the bluemix new look as shown below,</a> follow the below steps to reach the Dashboard.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
  Click on 'Switch to Classic' to switch to the console.
