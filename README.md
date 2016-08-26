@@ -51,7 +51,9 @@ Welcome! These instructions describe the pre-requisites to be completed before a
  You will land on your Bluemix Dashboard. 
  * If you have landed on the Dashboard as shown below, [click here](#acc_complete).
  * If you do not get to the Dashboard, please move to the [step 1.8](#step_view). 
-</font></b>
+</font>
+</b>
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
 
 
