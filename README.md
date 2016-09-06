@@ -3,7 +3,7 @@
 Welcome! These instructions describe the pre-requisites to be completed before attending the lab session. Please follow these steps to ensure that you are fully prepared to participate on the day of the lab.
 
 ## Prepare your Bluemix account
-                             [Lab Document Download](https://bluemix.net/registration/)
+[Lab Document Download](https://bluemix.net/registration/)
 
 <b>1. Ensure that you have an account on [IBM Bluemix](https://bluemix.net/). If you already have a Bluemix account, then sign in to your account and proceed to [step 2](#acc_complete). </b> 
 
