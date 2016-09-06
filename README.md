@@ -48,33 +48,34 @@ Welcome! These instructions describe the pre-requisites to be completed before a
  
 <b>
  You will land on your Bluemix Dashboard. 
- * If you have landed on the Dashboard as shown below, proceed to [step 2](#acc_complete1).
- * If you do not get to the Dashboard, proceed to [step 1.8](#step_view). 
+ * If you have landed on the Dashboard view as shown below, proceed to [step 2](#acc_complete1).
+ * If you did not get to the Dashboard, proceed to [step 1.8](#step_view). 
 </b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/dashboard.PNG)
 
 
 <a name="step_view">
-   1.8 If you land on the bluemix new look as shown below,</a> follow the below steps to reach the Dashboard.
+   1.8 If you land on the new Bluemix interface as shown below,</a> click on the highlighted area at the top right.
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview1.PNG)   
 
- Click on 'Switch to Classic' to switch to the console.
+ Click on 'Switch to Classic'.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/newview2.PNG)  
 
-You may be asked to login again, please login and after this you will land on the <b>Bluemix Dashboard</b>.
+You may be asked to login again. After login, you will land on the <b>Bluemix Dashboard</b>.
 
 
 
 <a name="acc_complete">
 <a name="acc_complete1">
 <b> 2. Ensure that you have the necessary space available in your Bluemix account to complete the lab. Open your Bluemix Dashboard to check if you have the required space:</b></a></a>
-   * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. 
+   * The 'Services & APIs' tile shows the number of services you have available. You will require space to deploy two services during the lab. If you do not have sufficient space for two services, then delete some existing services (visible in your dashboard) before proceeding to the next step.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services2.PNG)
 
-   * The 'Cloud Foundry Apps' tile shows the memory you have available for apps. You will require at least 256 MB of free space to deploy the app for this lab.
+   * The 'Cloud Foundry Apps' tile shows the memory you have available for apps. You will require at least 256 MB of free space to deploy the app for this lab. If you do not have 256MB of free space, then delete some existing apps (visible in your dashboard) before proceeding to the next step.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services1.PNG)
 
