@@ -4,10 +4,10 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 # Prepare your Bluemix account
 <a style="float: right;">
-| ------:|
-| ------:|
-| ------:|
-| ------:|
+ ------:|
+ ------:|
+ ------:|
+ ------:|
 | [Lab Document Download](https://bluemix.net/registration/)</a>| 
 
 
