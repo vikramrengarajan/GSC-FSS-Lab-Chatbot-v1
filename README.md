@@ -4,9 +4,8 @@ Welcome! These instructions describe the pre-requisites to be completed before a
 
 # Prepare your Bluemix account
 <a style="float: right;">
- 
-| | | [Lab Document Download](https://bluemix.net/registration/)</a>| 
-| ------:| -----------:|
+ <pre><pre><pre>[Lab Document Download](https://bluemix.net/registration/)</a></pre></pre></pre>
+
 
 <b>1. Ensure that you have an account on [IBM Bluemix](https://bluemix.net/). If you already have a Bluemix account, then sign in to your account and proceed to [step 2](#acc_complete). </b> 
 
